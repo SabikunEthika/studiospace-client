@@ -40,7 +40,7 @@ export default function RegisterPage() {
     <div className="min-h-[80vh] grid place-items-center px-4 py-10">
       <div className="card bg-base-100 shadow-xl border border-base-300 w-full max-w-md">
         <form onSubmit={onSubmit} className="card-body gap-3">
-          <h1 className="text-3xl font-bold text-center">Create your account</h1>
+          <h1 className="text-3xl font-bold text-center md:text-4xl">Create your account</h1>
           {error && <div className="alert alert-error text-sm">{error}</div>}
           <input name="name" required placeholder="Full name" className="input input-bordered w-full" />
           <input name="email" type="email" required placeholder="Email" className="input input-bordered w-full" />

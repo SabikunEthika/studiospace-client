@@ -7,16 +7,23 @@ export const useAuth = () => useContext(AuthCtx);
 
 export default function AuthProvider({ children }) {
   const { data: session, isPending } = authClient.useSession();
-  const [tokenReady, setTokenReady] = useState(false);
+  const [tokenUserId, setTokenUserId] = useState(null);
   const userId = session?.user?.id;
 
   useEffect(() => {
     if (isPending) return;
-    if (!userId) { setTokenReady(true); return; }
-    setTokenReady(false);
-    fetch("/api/token", { method: "POST" }).finally(() => setTokenReady(true));
-  }, [userId, isPending]);
+    if (!userId) {
+      if (tokenUserId !== null) queueMicrotask(() => setTokenUserId(null));
+      return;
+    }
+    if (tokenUserId === userId) return;
+    let active = true;
+    fetch("/api/token", { method: "POST" }).finally(() => {
+      if (active) setTokenUserId(userId);
+    });
+    return () => { active = false; };
+  }, [userId, isPending, tokenUserId]);
 
-  const value = { user: session?.user || null, loading: isPending || !tokenReady };
+  const value = { user: session?.user || null, loading: isPending || (Boolean(userId) && tokenUserId !== userId) };
   return <AuthCtx.Provider value={value}>{children}</AuthCtx.Provider>;
 }

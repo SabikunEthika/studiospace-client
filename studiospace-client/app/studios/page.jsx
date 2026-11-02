@@ -15,8 +15,8 @@ function Explore() {
   const [studios, setStudios] = useState(null);
 
   useEffect(() => {
-    setStudios(null);
     const t = setTimeout(() => {
+      setStudios(null);
       const q = new URLSearchParams();
       if (search) q.set("search", search);
       if (category) q.set("category", category);

@@ -1,7 +1,7 @@
 # StudioSpace
 
-Live site: https://YOUR-APP.vercel.app
-Server repo: https://github.com/YOUR_USERNAME/studiospace-server
+Live site: https://studiospace-client-pink.vercel.app/
+Server repo: https://github.com/SabikunEthika/studiospace-server
 
 StudioSpace is a peer-to-peer marketplace for renting photo studios, film stages, podcast lounges, music suites and workshops.
 

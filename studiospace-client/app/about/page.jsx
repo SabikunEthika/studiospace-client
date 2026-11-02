@@ -26,7 +26,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
-        <h1 className="text-4xl font-bold md:text-5xl">About StudioSpace</h1>
+        <h1 className="text-3xl font-bold text-center md:text-4xl">About StudioSpace</h1>
         <div className="mt-8 space-y-5 text-lg leading-8 opacity-80">
           <p>
             StudioSpace connects creators with inspiring, practical spaces for photography, film, podcasts, and every kind of production in between.

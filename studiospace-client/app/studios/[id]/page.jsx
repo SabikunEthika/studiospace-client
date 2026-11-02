@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -25,11 +25,11 @@ export default function StudioDetails() {
   const [missing, setMissing] = useState(false);
   const [showBooking, setShowBooking] = useState(false);
 
-  const load = () => {
+  const load = useCallback(() => {
     api(`/studios/${id}`).then(setStudio).catch(() => setMissing(true));
     api(`/studios/${id}/reviews`).then(setReviews).catch(() => {});
-  };
-  useEffect(() => { load(); }, [id]);
+  }, [id]);
+  useEffect(() => { load(); }, [load]);
 
   const book = () => {
     if (!user) { toast.error("Please log in to book a workspace"); router.push(`/login?redirect=${encodeURIComponent(pathname)}`); return; }

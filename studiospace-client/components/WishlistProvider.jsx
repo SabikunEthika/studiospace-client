@@ -10,12 +10,18 @@ export const useWishlist = () => useContext(Ctx);
 export default function WishlistProvider({ children }) {
   const { user, loading } = useAuth();
   const [ids, setIds] = useState([]);
+  const userId = user?.id;
 
   useEffect(() => {
     if (loading) return;
-    if (!user) { setIds([]); return; }
-    api("/wishlist").then(setIds).catch(() => {});
-  }, [user?.id, loading]);
+    let active = true;
+    if (!userId) {
+      queueMicrotask(() => { if (active) setIds([]); });
+    } else {
+      api("/wishlist").then((savedIds) => { if (active) setIds(savedIds); }).catch(() => {});
+    }
+    return () => { active = false; };
+  }, [userId, loading]);
 
   const toggle = async (id) => {
     if (!user) return toast.error("Please log in to save studios");

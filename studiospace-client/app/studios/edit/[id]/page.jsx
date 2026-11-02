@@ -19,7 +19,7 @@ function Inner() {
       if (s.ownerEmail !== user.email) { toast.error("You can only edit your own studios"); router.replace("/my-listings"); return; }
       setStudio(s);
     }).catch((e) => { toast.error(e.message); router.replace("/my-listings"); });
-  }, [id]);
+  }, [id, router, user.email]);
 
   if (!studio) return <Spinner />;
   return (

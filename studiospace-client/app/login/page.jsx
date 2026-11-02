@@ -37,7 +37,7 @@ function LoginForm() {
     <div className="min-h-[80vh] grid place-items-center px-4 py-10">
       <div className="card bg-base-100 shadow-xl border border-base-300 w-full max-w-md">
         <form onSubmit={onSubmit} className="card-body gap-3">
-          <h1 className="text-3xl font-bold text-center">Login to StudioSpace</h1>
+          <h1 className="text-3xl font-bold text-center md:text-4xl">Login to StudioSpace</h1>
           {error && <div className="alert alert-error text-sm">{error}</div>}
           <label className="form-control">
             <span className="label-text mb-1">Email</span>
