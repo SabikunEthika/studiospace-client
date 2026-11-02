@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/components/AuthProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WishlistProvider from "@/components/WishlistProvider";
 
 export const metadata = {
   title: "StudioSpace | Creative Studio Marketplace",
@@ -17,10 +18,12 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-screen flex flex-col">
         <AuthProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </AuthProvider>
+  <WishlistProvider>
+    <Navbar />
+    <main className="flex-1">{children}</main>
+    <Footer />
+  </WishlistProvider>
+</AuthProvider>
         <Toaster position="top-right" />
       </body>
     </html>

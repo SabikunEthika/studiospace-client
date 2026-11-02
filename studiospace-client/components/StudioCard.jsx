@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FiMapPin, FiStar } from "react-icons/fi";
+import HeartButton from "./HeartButton";
 
 export default function StudioCard({ studio }) {
   return (
@@ -7,6 +8,7 @@ export default function StudioCard({ studio }) {
       <figure className="relative h-52 w-full">
         <img src={studio.image} alt={studio.title} className="w-full h-full object-cover" />
         <span className="badge badge-primary absolute top-3 left-3">{studio.category}</span>
+        <HeartButton studioId={studio._id} />
       </figure>
       <div className="card-body p-4">
         <div className="flex justify-between items-start gap-2">
