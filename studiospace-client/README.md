@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# StudioSpace
 
-## Getting Started
+Live site: https://YOUR-APP.vercel.app
+Server repo: https://github.com/YOUR_USERNAME/studiospace-server
 
-First, run the development server:
+StudioSpace is a peer-to-peer marketplace for renting photo studios, film stages, podcast lounges, music suites and workshops.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Hero slider, featured studios (top 6 from MongoDB) and category browsing
+- Search, category filter and sorting on Explore Studios
+- Email/password and Google login with Better Auth; password validation
+- Full CRUD for studio listings with imgbb image upload
+- Booking system with double-booking prevention against confirmed bookings
+- JWT stored in HTTPOnly cookies; protected routes return 401
+- Light/dark theme toggle, toast notifications, custom modals, skeleton loaders
+- Host dashboard to confirm or reject requests, PDF invoices, saved studios wishlist
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js (App Router), Tailwind CSS, DaisyUI, Better Auth (MongoDB adapter), Swiper, React Hot Toast, Express.js, MongoDB, JWT
 
-## Learn More
+## Local Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. `git clone https://github.com/YOUR_USERNAME/studiospace-client.git && cd studiospace-client`
+2. `npm install`
+3. Copy `.env.example` to `.env.local` and fill in the values
+4. Run the server repo (`npm run dev`) on port 5000
+5. `npm run dev` and open http://localhost:3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Examiner Test Credentials
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email: examiner@studiospace.com
+- Password: Examiner123
